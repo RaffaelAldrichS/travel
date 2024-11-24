@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Destination extends Model
 {
@@ -22,9 +23,9 @@ class Destination extends Model
     {
         return $this->hasMany(Hotel::class);
     }
-    public function transports(): HasMany
+    public function transports(): BelongsToMany
     {
-        return $this->hasMany(Transport::class);
+        return $this->belongsToMany(Transport::class, 'destination_transport');
     }
 
     public function packets(): HasMany

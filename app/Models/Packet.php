@@ -10,12 +10,12 @@ class Packet extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "nama_paket",
-        "deskripsi",
-        "harga_total",
+        "packet_name",
+        "description",
+        "total_price",
         "rating",
-        "ulasan",
-        "total_pembelian",
+        "reviews",
+        "total_purchases",
         "destination_id",
         "hotel_id",
         "transport_id"

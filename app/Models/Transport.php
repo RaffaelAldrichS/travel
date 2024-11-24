@@ -3,27 +3,27 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Transport extends Model
 {
 
     protected $fillable = [
-        "nama_transport",
-        "deskripsi",
-        "tipe_transport",
-        "biaya",
-        "destination_id"
+        "transport_name",
+        "description",
+        "transport_type",
+        "cost",
     ];
 
 
-    public function destination(): BelongsTo
-    {
-        return $this->belongsTo(Destination::class);
-    }
     public function pakets(): HasMany
     {
         return $this->hasMany(Packet::class);
+    }
+
+    public function destinations(): BelongsToMany
+    {
+        return $this->belongsToMany(Destination::class, 'destination_transport');
     }
 }

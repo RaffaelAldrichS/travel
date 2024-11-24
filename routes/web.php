@@ -12,7 +12,7 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::resource('destinations', DestinationController::class)->names('destinations');
+    Route::resource('destinations', DestinationController::class);
     Route::resource('hotels', HotelController::class)->names('hotels');
     Route::resource('transports', TransportController::class)->names('transports');
     Route::resource('packets', PacketController::class)->names('packets');
